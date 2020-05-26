@@ -1,0 +1,30 @@
+
+.CHIP	PMS132B
+
+//{{PADAUK_CODE_OPTION
+	.Code_Option	Security	Enable		// Security 3/4 words Enable
+	.Code_Option	GPC_PWM		Disable
+	.Code_Option	PWM_Source	16MHz
+	.Code_Option	Interrupt_Src1	PB.0
+	.Code_Option	Interrupt_Src0	PA.0
+	.Code_Option	Bootup_Time	Fast
+	.Code_Option	PB4_PB7_Drive	Strong
+	.Code_Option	LVR		2.5V
+//}}PADAUK_CODE_OPTION
+
+//	----------- IMPORTANT -------------
+//	Please don't change the follow code
+//	It only be used for internal Mini-C
+//	-----------------------------------
+
+	.JMP	FPPA0	<?>, 0
+	.JMP	FPPA1	<?>, 1	// If you don't use the FPPAx,
+	.JMP	FPPA2	<?>, 2	// System will automatic optimize it.
+	.JMP	FPPA3	<?>, 3	//
+	.JMP	FPPA4	<?>, 4	//
+	.JMP	FPPA5	<?>, 5	//
+	.JMP	FPPA6	<?>, 6	//
+	.JMP	FPPA7	<?>, 7	//
+
+.ROMADR	0x10
+	.PUT	Interrupt <reti>, 8
